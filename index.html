@@ -79,6 +79,30 @@ table.tb{border-radius:12px;overflow:hidden;border-collapse:separate;border-spac
 .pp2{border-radius:14px}details>summary{color:#3730a3}
 @media (max-width:420px){.dn1w{flex-basis:118px}.dn1{width:118px;height:118px}.dleg{font-size:.74rem}.dt2 b{font-size:1.1rem}}
 @media print{.dash{box-shadow:none;border:1px solid #ccc}}
+
+/* ===== होम: गाँव वोटर-विश्लेषण डैशबोर्ड ===== */
+@keyframes vgrow{from{transform:scaleX(0)}}
+.vd-hero{background:linear-gradient(135deg,#1e1b4b,#4338ca 58%,#7c3aed);color:#fff;border-radius:24px;padding:16px;margin:10px 0;box-shadow:0 10px 28px #4338ca40;position:relative;overflow:hidden}
+.vd-hero h2{margin:0 0 2px;font-size:1.15rem;color:#fff}.vd-hero .note{color:#ffffffc0;margin:0 0 10px}
+.vd-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.vd-t{background:#ffffff1f;border:1px solid #ffffff2e;border-radius:14px;padding:9px 4px;text-align:center}
+.vd-t b{display:block;font-size:1.25rem;line-height:1.15}.vd-t small{font-size:.7rem;opacity:.85}
+.vd-sub{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:7px}
+.vd-sub .vd-t{background:#00000026;padding:7px 3px}.vd-sub b{font-size:1rem}
+.vd-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.vd-don{width:130px;height:130px;flex:none}.vd-leg{flex:1;min-width:140px;font-size:.88rem}
+.vd-leg div{display:flex;align-items:center;gap:7px;padding:3px 0}.vd-leg i{width:11px;height:11px;border-radius:50%;flex:none}
+.vd-br{margin:8px 0}.vd-bt{display:flex;justify-content:space-between;gap:8px;font-size:.84rem;margin-bottom:3px}.vd-bt b{color:#3730a3;white-space:nowrap}
+.vd-tr{height:12px;border-radius:8px;background:#e8ecf8;overflow:hidden;display:flex}.vd-tr i{display:block;height:100%;transform-origin:left;animation:vgrow .8s ease both}
+.vd-ins{margin:6px 0 0 18px;padding:0}.vd-ins li{margin:6px 0;line-height:1.5}
+.vd-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vd-c{background:linear-gradient(135deg,#f5f3ff,#eef2ff);border:1px solid #e3e8f8;border-radius:16px;padding:10px;font-size:.85rem}
+.vd-c b{display:block;font-size:1.05rem;color:#1e1b4b}.vd-c .vd-tr{margin-top:6px;height:9px}
+.vd-steps{display:flex;gap:6px;margin:8px 0}.vd-s{flex:1;text-align:center;background:#f7f8ff;border-radius:14px;padding:9px 3px;font-size:.78rem;font-weight:600}
+.vd-s span{display:block;font-size:1.4rem}
+details.box>summary{list-style:none;font-weight:700;color:#3730a3}details.box>summary::-webkit-details-marker{display:none}
+@media (max-width:420px){.vd-t b{font-size:1.05rem}.vd-t small{font-size:.64rem}.vd-don{width:112px;height:112px}}
+@media print{.vd-hero{box-shadow:none;border:1px solid #ccc;color:#000;background:#fff}.vd-hero h2,.vd-hero .note{color:#000}.vd-t{border-color:#ccc;background:#fff}}
 </style></head><body>
 <header><h1>🗳 ग्राम पंचायत धोलिया</h1><p>उम्मीदवार वोटर-आकलन व जीत-रणनीति मंच</p></header>
 <nav><button data-p="home">🏠 मुख्य</button><button data-p="srch">🔍 वोटर खोज</button><button data-p="cand">👤 उम्मीदवार</button><button data-p="adm">🆔 एडमिन</button></nav>
@@ -397,4 +421,51 @@ $$('#t_g [data-is]').forEach(c=>c.onchange=()=>{const a=$$('#t_g [data-is]:check
 $('#gs').onclick=()=>shareTxt($('#gm').value);$('#gc').onclick=async()=>{try{await navigator.clipboard.writeText($('#gm').value);toast('कॉपी हो गया')}catch(e){toast('कॉपी नहीं हो सका')}}}
 /* ---------- शुरुआत ---------- */
 const HM0=location.hash.match(/h=([A-Za-z0-9]+)/);if(HM0)initHelp(HM0[1]);else go('home');
-</script></body></html>
+</script>
+<script>
+/* ---- होम डैशबोर्ड (केवल वोटर सूची से, लॉगिन की ज़रूरत नहीं) ---- */
+(function(){try{
+const h=document.getElementById('p_home');if(!h||typeof V==='undefined'||!V.length)return;
+const N=V.length,PAL=['#4338ca','#7c3aed','#db2777','#f59e0b','#12a150','#0891b2','#e5484d','#64748b'];
+const cnt=f=>V.filter(f).length,M=cnt(v=>v.g==='पुरुष'),F=cnt(v=>v.g==='महिला'),O=N-M-F;
+const pc=(a,b)=>b?Math.round(a*1000/b)/10:0,fm=n=>Number(n).toLocaleString('en-IN');
+const ag=V.map(v=>+v.age).filter(a=>a>0),avg=Math.round(ag.reduce((a,b)=>a+b,0)/(ag.length||1));
+const AG=[['18-25',18,25],['26-35',26,35],['36-45',36,45],['46-60',46,60],['60+',61,200]].map(([l,a,b])=>{const r=V.filter(v=>+v.age>=a&&+v.age<=b);return{l,n:r.length,m:r.filter(v=>v.g==='पुरुष').length,f:r.filter(v=>v.g==='महिला').length}});
+const SE=Object.entries(NS).sort((a,b)=>b[1]-a[1]).map(([s,n])=>{const r=V.filter(v=>v.sec==s);return{s,n,f:r.filter(v=>v.g==='महिला').length}});
+const PT=[...new Set(V.map(v=>v.part))].sort().map(p=>{const r=V.filter(v=>v.part==p);return{p,n:r.length,m:r.filter(v=>v.g==='पुरुष').length,f:r.filter(v=>v.g==='महिला').length}});
+const HHm={};V.forEach(v=>{const k=v.sec+'|'+v.house;HHm[k]=(HHm[k]||0)+1});
+const HHl=Object.entries(HHm),nH=HHl.length,big=HHl.sort((a,b)=>b[1]-a[1]).slice(0,5);
+const big4=HHl.filter(x=>x[1]>=4).length;
+const mx=Math.max(...SE.map(x=>x.n)),yg=AG[0].n,sr=AG[4].n;
+/* डोनट */
+let off=0;const C=2*Math.PI*15.915,parts=[['पुरुष',M,'#4338ca'],['महिला',F,'#db2777'],['अन्य',O,'#94a3b8']].filter(p=>p[1]>0);
+const don=parts.map(p=>{const l=p[1]/N*C,s=`<circle cx="21" cy="21" r="15.915" fill="none" stroke="${p[2]}" stroke-width="6" stroke-dasharray="${l} ${C-l}" stroke-dashoffset="${-off}" transform="rotate(-90 21 21)"/>`;off+=l;return s}).join('');
+const bar=(w,c,d)=>`<i style="width:${w}%;background:${c};animation-delay:${d||0}s"></i>`;
+const secRows=(arr)=>arr.map((x,i)=>`<div class="vd-br"><div class="vd-bt"><span>${H(sn(x.s))}</span><b>${fm(x.n)} · ${pc(x.n,N)}%</b></div><div class="vd-tr">${bar(x.n*100/mx,PAL[i%PAL.length],i*.04)}</div></div>`).join('');
+const ageRows=AG.map((x,i)=>{const t=Math.max(...AG.map(a=>a.n))||1;return`<div class="vd-br"><div class="vd-bt"><span>${x.l} वर्ष</span><b>${fm(x.n)} · ${pc(x.n,N)}%</b></div><div class="vd-tr" style="width:${Math.max(8,x.n*100/t)}%">${bar(x.n?x.m*100/x.n:0,'#4338ca',i*.05)}${bar(x.n?x.f*100/x.n:0,'#db2777',i*.05)}</div></div>`}).join('');
+const ptCards=PT.map(x=>`<div class="vd-c"><b>भाग ${H(x.p)}</b>${fm(x.n)} वोटर<div class="vd-tr">${bar(x.m*100/x.n,'#4338ca')}${bar(x.f*100/x.n,'#db2777')}</div><small class="note">पुरुष ${fm(x.m)} · महिला ${fm(x.f)}</small></div>`).join('');
+const top=SE[0],top2=SE.slice(0,2).reduce((a,b)=>a+b.n,0);
+const ins=[
+`सबसे बड़ा मोहल्ला <b>${H(sn(top.s))}</b> है — ${fm(top.n)} वोटर (${pc(top.n,N)}%)। शुरुआती दो मोहल्ले मिलकर <b>${pc(top2,N)}%</b> वोट रखते हैं।`,
+`महिला वोटर <b>${pc(F,N)}%</b> हैं (प्रति 1000 पुरुष पर ${M?Math.round(F*1000/M):0} महिलाएँ) — महिलाओं तक पहुँच जीत में निर्णायक हो सकती है।`,
+`युवा (18-25) <b>${pc(yg,N)}%</b> और वरिष्ठ (60+) <b>${pc(sr,N)}%</b> हैं; औसत आयु <b>${avg}</b> वर्ष है।`,
+`कुल <b>${fm(nH)}</b> मकान-समूह हैं; <b>${fm(big4)}</b> मकानों में 4 या अधिक वोटर हैं — इनसे सीधा संपर्क सबसे कारगर रहता है।`].map(t=>`<li>${t}</li>`).join('');
+const bigL=big.map(([k,n])=>{const [s,hn]=k.split('|');return`<div class="vd-bt"><span>${H(sn(s))} · मकान ${H(hn)}</span><b>${n} वोटर</b></div>`}).join('');
+const el=document.createElement('div');el.id='vdash';
+el.innerHTML=`
+<div class="vd-hero"><h2>📊 धोलिया — एक नज़र में</h2><p class="note">वोटर सूची (भाग ${PT.map(x=>x.p).join(', ')}) का सीधा विश्लेषण</p>
+<div class="vd-tiles"><div class="vd-t"><b>${fm(N)}</b><small>कुल वोटर</small></div><div class="vd-t"><b>${fm(M)}</b><small>पुरुष</small></div><div class="vd-t"><b>${fm(F)}</b><small>महिला</small></div><div class="vd-t"><b>${fm(nH)}</b><small>मकान</small></div></div>
+<div class="vd-sub"><div class="vd-t"><b>${avg}</b><small>औसत आयु</small></div><div class="vd-t"><b>${M?Math.round(F*1000/M):0}</b><small>लिंगानुपात</small></div><div class="vd-t"><b>${SE.length}</b><small>मोहल्ले</small></div><div class="vd-t"><b>${PT.length}</b><small>भाग/बूथ</small></div></div></div>
+<div class="box"><h2>💡 मुख्य निष्कर्ष</h2><ul class="vd-ins">${ins}</ul></div>
+<div class="box"><h2>⚧ पुरुष–महिला अनुपात</h2><div class="vd-row"><svg viewBox="0 0 42 42" class="vd-don">${don}<text x="21" y="22.5" text-anchor="middle" font-size="6.5" font-weight="800" fill="#1e1b4b">${fm(N)}</text></svg><div class="vd-leg">${parts.map(p=>`<div><i style="background:${p[2]}"></i>${p[0]}: <b>${fm(p[1])}</b> (${pc(p[1],N)}%)</div>`).join('')}</div></div></div>
+<div class="box"><h2>🏘 मोहल्ला-वार वोटर</h2><p class="note">सबसे बड़े मोहल्ले से शुरू — जहाँ वोटर ज़्यादा, वहाँ पहले समय दें।</p>${secRows(SE.slice(0,8))}${SE.length>8?`<details><summary>बाकी ${SE.length-8} मोहल्ले देखें</summary>${secRows(SE.slice(8))}</details>`:''}<button class="b g s" id="vdcsv">⬇ मोहल्ला सारांश CSV</button> <button class="b l s" onclick="window.print()">🖨 प्रिंट</button></div>
+<div class="box"><h2>👥 आयु-वर्ग</h2><p class="note"><span style="color:#4338ca">■</span> पुरुष &nbsp;<span style="color:#db2777">■</span> महिला (पट्टी की लंबाई = वर्ग का आकार)</p>${ageRows}</div>
+<div class="box"><h2>🗳 भाग (बूथ) अनुसार</h2><div class="vd-cards">${ptCards}</div></div>
+<div class="box"><h2>🏠 सबसे बड़े परिवार/मकान</h2><p class="note">इन घरों में एक साथ कई वोटर हैं।</p>${bigL}</div>
+<div class="box"><h2>🧭 उपयोग कैसे करें</h2><div class="vd-steps"><div class="vd-s"><span>👤</span>रजिस्टर / लॉगिन</div><div class="vd-s"><span>🤝</span>साथी जोड़ें</div><div class="vd-s"><span>🔗</span>राय लिंक भेजें</div><div class="vd-s"><span>🏆</span>जीत-योजना देखें</div></div></div>`;
+const info=h.querySelector('.box:not(.warn)');
+if(info&&/यह मंच क्या है/.test(info.textContent)){const d=document.createElement('details');d.className='box';const t=info.querySelector('h2');d.innerHTML='<summary>ℹ यह मंच क्या है (पढ़ें)</summary>'+info.innerHTML.replace(/<h2>.*?<\/h2>/,'');info.replaceWith(d);h.appendChild(el);h.appendChild(d)}else h.appendChild(el);
+document.getElementById('vdcsv').onclick=()=>{const r=[['मोहल्ला','वोटर','प्रतिशत','महिला']].concat(SE.map(x=>[sn(x.s),x.n,pc(x.n,N),x.f]));const b=new Blob(['\ufeff'+r.map(a=>a.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='dholiya-mohalla-summary.csv';a.click()};
+}catch(e){console.error('home dashboard',e)}})();
+</script>
+</body></html>
