@@ -106,6 +106,96 @@ details.box>summary{list-style:none;font-weight:700;color:#3730a3}details.box>su
 
 #cpm{position:fixed;inset:0;background:#0f172a99;z-index:50;display:flex;align-items:center;justify-content:center;padding:14px}#cpm[hidden]{display:none!important}
 #cpm .box{width:100%;max-width:420px;margin:0;animation:up .25s ease both}
+
+/* ===== विजय-योजना हीरो ===== */
+@keyframes vpop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}@keyframes vshine{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.vy{background:linear-gradient(135deg,#1e1b4b,#4338ca 55%,#7c3aed);color:#fff;border-radius:26px;padding:16px;margin:10px 0;position:relative;overflow:hidden;box-shadow:0 12px 30px #4338ca4d;animation:vpop .5s ease both}
+.vy:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff1a 50%,transparent 70%);background-size:200% 100%;animation:vshine 5s linear infinite;pointer-events:none}
+.vy h2{margin:0;font-size:1.2rem;color:#fff}.vy .sub{opacity:.88;font-size:.85rem;margin:2px 0 8px}
+.vy-top{display:flex;gap:10px;align-items:center;position:relative}.vy-g{width:150px;flex:none}.vy-g svg{width:100%;display:block}
+.vy-st{flex:1;font-size:.88rem}.vy-st b{display:block;font-size:1.15rem;color:#fcd34d}
+.vy-k{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;position:relative}
+.vy-k div{background:#ffffff1f;border:1px solid #ffffff2e;border-radius:14px;padding:8px 3px;text-align:center}.vy-k b{display:block;font-size:1.1rem}.vy-k small{font-size:.66rem;opacity:.85}
+.vy-win{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#422006;border-radius:14px;padding:8px 10px;margin-top:10px;font-weight:700;text-align:center;position:relative}
+.vy-pil{display:flex;gap:6px;margin-top:10px;position:relative}.vy-pil div{flex:1;background:#ffffff1a;border-radius:14px;padding:8px 4px;text-align:center;font-size:.75rem}.vy-pil span{display:block;font-size:1.3rem}
+.vy3 .it{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:16px;margin:8px 0;background:linear-gradient(135deg,#f5f3ff,#eef2ff);border:1px solid #e3e8f8}
+.vy3 .no{flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;display:grid;place-items:center;font-weight:800}
+.vy3 .it small{display:block;color:#5b6475}
+.rd{display:flex;gap:6px;overflow-x:auto;padding:4px 0}.rd .ph{flex:1;min-width:120px;background:#f7f8ff;border:1px solid #e3e8f8;border-radius:16px;padding:9px;font-size:.8rem}
+.rd .ph b{display:block;color:#3730a3;margin-bottom:5px}.rd .pb{height:8px;background:#e5e9f7;border-radius:6px;overflow:hidden}.rd .pb i{display:block;height:100%;background:linear-gradient(90deg,#4338ca,#12a150);transform-origin:left;animation:vgrow .9s ease both}
+@media print{.vy:before{display:none}.vy{box-shadow:none}}
+
+/* ===== राय जोड़ना: ड्रॉप-डाउन + जोड़ें बटन ===== */
+@keyframes vpulse{0%,100%{box-shadow:0 0 0 0 #12a15066}50%{box-shadow:0 0 0 9px #12a15000}}
+.dock{background:#ffffffee;backdrop-filter:blur(8px);border:2px solid #4338ca33;border-radius:20px 20px 0 0;box-shadow:0 -8px 24px #4338ca24;padding:10px!important}
+.dock #mt{flex:1;min-width:150px;font-weight:700;border:2px solid #c7d2fe;border-radius:14px;background:#f5f3ff}
+#ma{font-size:1rem;padding:11px 16px;border-radius:14px;background:linear-gradient(135deg,#12a150,#0d8a43);color:#fff;font-weight:800}
+#ma.pulse{animation:vpulse 1.3s infinite}
+#pend{flex-basis:100%;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#78350f;border-radius:12px;padding:7px 10px;font-size:.85rem}#pend[hidden]{display:none}
+.cov{background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1px solid #dbe2fb;border-radius:18px;padding:12px;margin:8px 0}
+.cov b{font-size:1.05rem;color:#312e81}.cov small{display:block;color:#5b6475}.cov .cb{height:10px;border-radius:8px;background:#e1e6f8;overflow:hidden;margin:8px 0}.cov .cb i{display:block;height:100%;background:linear-gradient(90deg,#4338ca,#12a150);border-radius:8px;transition:width .6s}
+.hq{background:linear-gradient(135deg,#1e1b4b,#4338ca);color:#fff;border-radius:18px;padding:11px;margin:8px 0}.hq label{display:block;font-size:.85rem;margin-bottom:6px;opacity:.95}.hq select{width:100%;font-weight:700;border-radius:12px}
+.hq .cb{height:8px;background:#ffffff33;border-radius:6px;overflow:hidden;margin-top:9px}.hq .cb i{display:block;height:100%;background:linear-gradient(90deg,#fcd34d,#34d399);transition:width .5s}.hq small{display:block;margin-top:5px;opacity:.9}
+.qa{display:block;width:100%;margin:2px 0 6px;padding:9px;border:0;border-radius:12px;background:linear-gradient(135deg,#12a150,#0d8a43);color:#fff;font-weight:800;font-size:.92rem}
+.qd{display:block;text-align:center;color:#0d8a43;font-weight:700;font-size:.8rem;padding:2px 0 6px}
+
+/* ===== चुनाव कार्यक्रम + आधुनिक सारणी/चार्ट ===== */
+.ec{background:linear-gradient(135deg,#0f172a,#312e81 55%,#6d28d9);color:#fff;border-radius:26px;padding:16px;margin:10px 0;box-shadow:0 12px 30px #312e8160;position:relative;overflow:hidden}
+.ec h2{margin:0;color:#fff;font-size:1.15rem}.ec .sub{opacity:.85;font-size:.82rem;margin:2px 0 10px}
+.cdw{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.cdw div{background:#ffffff1f;border:1px solid #ffffff30;border-radius:16px;padding:10px 2px;text-align:center}.cdw b{display:block;font-size:1.6rem;line-height:1.1;color:#fcd34d}.cdw small{font-size:.7rem;opacity:.85}
+.ecs{margin-top:10px;background:#ffffff1a;border-radius:14px;padding:8px 10px;font-size:.88rem;text-align:center}
+.tlv{position:relative;margin:8px 0 2px 14px;padding-left:18px;border-left:3px solid #c7d2fe}
+.tlv .ev{position:relative;background:#fff;border:1px solid #e3e8f8;border-radius:16px;padding:9px 11px;margin:0 0 10px;box-shadow:0 3px 10px #4338ca12}
+.tlv .ev:before{content:"";position:absolute;left:-28px;top:14px;width:15px;height:15px;border-radius:50%;background:#94a3b8;border:3px solid #fff;box-shadow:0 0 0 2px #c7d2fe}
+.tlv .ev.dn:before{background:#12a150}.tlv .ev.td:before{background:#f59e0b;box-shadow:0 0 0 5px #f59e0b44}.tlv .ev.up:before{background:#4338ca}
+.tlv .ev.key{background:linear-gradient(135deg,#fef3c7,#fff7ed);border-color:#fcd34d}
+.ev .dt{font-weight:800;color:#312e81}.ev .tm{font-size:.78rem;color:#5b6475}.ev .st{float:right;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px;background:#eef2ff;color:#3730a3}
+.ev.dn .st{background:#dcfce7;color:#166534}.ev.td .st{background:#fef3c7;color:#92400e}
+.stg{border-radius:18px;padding:12px;background:linear-gradient(135deg,#ecfdf5,#eef2ff);border:1px solid #bbf7d0;margin:8px 0}
+.stg h3{margin:0 0 6px;color:#065f46}.stg li{margin:5px 0;line-height:1.45}
+.stc{display:flex;gap:6px;overflow-x:auto;padding:4px 0 2px}.stc span{flex:none;font-size:.74rem;padding:5px 10px;border-radius:99px;background:#eef2ff;color:#475569;font-weight:600}.stc span.on{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff}
+.sch{width:100%;border-collapse:separate;border-spacing:0;font-size:.78rem;border-radius:14px;overflow:hidden;border:1px solid #e3e8f8}
+.sch th{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;padding:7px 4px}.sch td{padding:6px 4px;text-align:center;border-top:1px solid #eef0fa}.sch td:first-child{text-align:left;font-weight:600;background:#f8f9ff}
+.sch .p4{background:#fef3c7;font-weight:800;color:#78350f}.sch th.p4{background:#f59e0b;color:#fff}
+#elr{background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fff;border-radius:14px;padding:8px 12px;margin:8px 0;font-size:.85rem;font-weight:700;text-align:center;cursor:pointer}
+/* आधुनिक सारणी / चार्ट (विश्लेषण पेज) */
+.tb{border-collapse:separate!important;border-spacing:0;border:1px solid #e3e8f8;border-radius:14px;overflow:hidden}
+.tb th{background:linear-gradient(135deg,#eef2ff,#f5f3ff);color:#312e81;padding:8px 6px!important;position:sticky;top:0}
+.tb td{padding:7px 6px!important;border-top:1px solid #eef0fa!important}.tb tr:nth-child(even) td{background:#fafbff}.tb tr:hover td{background:#eef2ff}
+.tl{background:linear-gradient(135deg,#f5f3ff,#eef2ff)!important;border:1px solid #e0e7ff;border-radius:16px!important}.tl b{display:block;font-size:1.25rem;color:#3730a3}
+.hb div,.stk{border-radius:8px!important;box-shadow:inset 0 1px 3px #0000001a}.hb i{background-image:linear-gradient(90deg,#ffffff00,#ffffff40)}
+.box{border-radius:20px!important;box-shadow:0 4px 16px #4338ca14}.box h2{background:linear-gradient(90deg,#312e81,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+#tb button.on{background:linear-gradient(135deg,#4338ca,#7c3aed)!important;color:#fff!important;box-shadow:0 4px 12px #4338ca55}
+
+.ecs3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:9px}.ecs3 div{background:#00000030;border-radius:14px;padding:7px 3px;text-align:center;font-size:.72rem}.ecs3 b{display:block;font-size:1.25rem;color:#fde68a}
+.nx{margin-top:9px;background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff;border-radius:14px;padding:9px 11px;font-size:.88rem;font-weight:700}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}.mini div{background:#fff;border:1px dashed #f59e0b;border-radius:12px;padding:6px 8px;font-size:.78rem}.mini b{display:block;color:#b45309}
+.ins details{border:1px solid #e3e8f8;border-radius:14px;padding:8px 11px;margin:7px 0;background:#fafbff}.ins summary{font-weight:700;color:#312e81;cursor:pointer}.ins li{margin:5px 0;line-height:1.5;font-size:.88rem}
+.ins .wn{background:#fee2e2;color:#7f1d1d;border-radius:12px;padding:8px 10px;font-size:.84rem;margin-top:6px}
+
+/* ===== समग्र आकर्षक रूप ===== */
+@keyframes vup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes vflow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}@keyframes vfall{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(70vh) rotate(360deg);opacity:0}}
+body{background:linear-gradient(180deg,#e9edff 0,#f6f4ff 38%,#fdf7ec 100%) fixed!important}
+header{background:linear-gradient(120deg,#0f172a,#312e81,#6d28d9,#312e81)!important;background-size:300% 300%!important;animation:vflow 12s ease infinite;position:relative;overflow:hidden;padding-bottom:14px!important;border-radius:0 0 28px 28px;box-shadow:0 10px 28px #31207055}
+header:before{content:"🗳";position:absolute;right:-8px;top:-14px;font-size:96px;opacity:.12;transform:rotate(-14deg)}
+header:after{content:"";position:absolute;left:-40px;bottom:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(#fcd34d55,transparent 70%)}
+header h1{font-size:1.45rem!important;margin:0;letter-spacing:.2px;text-shadow:0 2px 10px #0006}header p{margin:2px 0 0;opacity:.9}
+.hch{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;position:relative;z-index:1}.hch span{background:#ffffff22;border:1px solid #ffffff38;border-radius:99px;padding:3px 10px;font-size:.74rem;backdrop-filter:blur(4px)}.hch b{color:#fde68a}
+nav{background:#ffffffd9!important;backdrop-filter:blur(10px);margin:8px;border-radius:99px;border:1px solid #e0e7ff!important;box-shadow:0 6px 18px #4338ca1f;top:6px!important}
+nav button{border:0!important;background:transparent!important;color:#475569;transition:.2s}nav button.on{background:linear-gradient(135deg,#4338ca,#7c3aed)!important;color:#fff!important;box-shadow:0 4px 12px #4338ca55}
+.b{background:linear-gradient(135deg,#1e1b4b,#3730a3);box-shadow:0 3px 8px #1e1b4b33;transition:transform .15s,box-shadow .15s}.b:hover{transform:translateY(-1px)}.b:active{transform:scale(.97)}
+.b.g{background:linear-gradient(135deg,#12a150,#0d8a43)}.b.r{background:linear-gradient(135deg,#e5484d,#b91c1c)}.b.l{background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;box-shadow:none}
+input,select,textarea{border:2px solid #e0e7ff!important;border-radius:14px!important;background:#fcfcff!important;transition:.2s}input:focus,select:focus,textarea:focus{outline:0;border-color:#7c3aed!important;box-shadow:0 0 0 4px #7c3aed22}
+.box{animation:vup .4s ease both;border:1px solid #e8ecff}
+.vr{border-radius:14px;margin:3px 0;border:1px solid #eef0fa!important;background:#fff;transition:.15s}.vr:hover{background:#f5f3ff;transform:translateX(2px)}
+.ini{background:linear-gradient(135deg,#4338ca,#db2777)!important;color:#fff!important;box-shadow:0 3px 8px #4338ca44}
+.chip{background:linear-gradient(135deg,#12a150,#0d8a43)!important;padding:2px 9px!important}.chip.rc{background:linear-gradient(135deg,#f59e0b,#ea580c)!important}
+#toast{background:linear-gradient(135deg,#1e1b4b,#4338ca)!important;border-radius:16px!important;box-shadow:0 10px 30px #1e1b4b66;border:1px solid #ffffff30;font-weight:600}
+.cf{position:fixed;top:12%;z-index:98;pointer-events:none;animation:vfall 1.6s ease-in forwards}
+#fab{position:fixed;right:14px;bottom:84px;width:44px;height:44px;border-radius:50%;border:0;background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;font-size:1.2rem;box-shadow:0 8px 20px #4338ca66;z-index:40;display:none;cursor:pointer}
+.vf{margin:18px 10px 6px;text-align:center;padding:14px;border-radius:20px;background:linear-gradient(135deg,#eef2ff,#fef3c7);color:#312e81;font-size:.85rem;border:1px solid #e0e7ff}.vf b{display:block;font-size:1rem;margin-bottom:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{header:before,header:after,#fab,.vf,.hch{display:none}nav{display:none}}
 </style></head><body>
 <header><h1>🗳 ग्राम पंचायत धोलिया</h1><p>उम्मीदवार वोटर-आकलन व जीत-रणनीति मंच</p></header>
 <nav><button data-p="home">🏠 मुख्य</button><button data-p="srch">🔍 वोटर खोज</button><button data-p="cand">👤 उम्मीदवार</button><button data-p="adm">🆔 एडमिन</button></nav>
@@ -495,5 +585,129 @@ if(n===o)return toast('नया पासवर्ड पुराने से
 if(!U)return toast('पहले लॉगिन करें');
 try{await call({op:'cpass',...U,old:o,pass:n});close();toast('✅ पासवर्ड बदल गया। अगली बार नए पासवर्ड से लॉगिन करें')}catch(e){toast(e)}}
 }catch(e){console.error('cpass ui',e)}})();
+</script>
+
+<script>
+(function(){try{
+if(typeof gd!=='function')return;const _g=gd;
+function vy(){const C=compute(D),{N,R,cl,S}=C,rv=cl.length>1,tn=+(lg('dh_tn')||70)/100,est=S.c.t.mine||0,br=rv?C.bestR(S.c.t):null,rvv=br?br.v:0,ev=Math.round(N*tn),my=est*tn,tg=Math.ceil(rv?rvv*tn+ev*.05:ev*.55),gap=Math.max(0,Math.ceil(tg-my));
+const sc=Math.round(Math.max(0,Math.min(100,50+(est-rvv)/N*400))),col=sc>=58?'#34d399':sc>=42?'#fbbf24':'#f87171',lab=sc>=75?'बहुत मज़बूत':sc>=58?'बढ़त में':sc>=42?'कड़ा मुक़ाबला':'मेहनत से पलटेगी बाज़ी';
+const kn=R.filter(x=>x.c).length,cov=Math.round(kn*100/N);let ck={};try{ck=JSON.parse(lg('dh_ck')||'{}')}catch(e){}
+const tot=PH.reduce((a,p)=>a+p[1].length,0),dn=PH.reduce((a,p,i)=>a+p[1].filter((_,j)=>ck[i+'-'+j]).length,0);
+const w=x=>x.c?x.c.mine||0:0,fR=x=>x.c&&Object.keys(x.c).some(k=>k!='mine'&&k!='hf'&&k!='oth'&&x.c[k]>.99),sw=x=>!fR(x)&&w(x)<.99,G={},HH={};
+R.forEach(x=>{if(sw(x)){G[x.v.sec]=(G[x.v.sec]||0)+1;const k=x.v.sec+'|'+x.v.house;HH[k]=(HH[k]||0)+1}});
+const tS=Object.entries(G).sort((a,b)=>b[1]-a[1])[0],tH=Object.entries(HH).sort((a,b)=>b[1]-a[1])[0],none=N-kn,L=157.08*sc/100;
+const steps=[tS?['🏘',sn(tS[0])+' मोहल्ले से शुरुआत',tS[1]+' खुले वोटर यहीं हैं — पहले यहाँ संपर्क करें']:['🏘','मोहल्ले-वार लिंक भेजें','जानकारों से राय जुटाकर नक़्शा साफ़ करें'],
+tH?['🏠','मकान '+tH[0].split('|')[1]+' ('+sn(tH[0].split('|')[0])+') से मिलें',tH[1]+' खुले वोटर एक ही घर में — एक मुलाक़ात, कई वोट']:['🤝','साथी उम्मीदवार जोड़ें','तुलना और रैंकिंग तभी साफ़ दिखेगी'],
+['📲',none+' वोटरों की राय जुटाएँ','राय-कवरेज '+cov+'% है — हर नई राय अनुमान को पक्का करती है']];
+const rd=PH.map((p,i)=>{const d=p[1].filter((_,j)=>ck[i+'-'+j]).length,n=p[1].length;return`<div class="ph"><b>${p[0]}</b><div class="pb"><i style="width:${Math.round(d*100/n)}%;animation-delay:${i*.12}s"></i></div><small class="note">${d}/${n} कदम पूरे</small></div>`}).join('');
+const html=`<div id="vyw"><div class="vy"><h2>🏆 आपकी विजय-योजना तैयार है</h2><div class="sub">${H(D.name.trim().split(/\s+/)[0])} जी — डेटा, रणनीति और 4 चरणों की कार्य-योजना एक जगह</div>
+<div class="vy-top"><div class="vy-g"><svg viewBox="0 0 120 72"><path d="M10 62A50 50 0 0 1 110 62" fill="none" stroke="#ffffff30" stroke-width="11" stroke-linecap="round"/><path d="M10 62A50 50 0 0 1 110 62" fill="none" stroke="${col}" stroke-width="11" stroke-linecap="round" stroke-dasharray="${L} 157.08"/><text x="60" y="56" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">${sc}</text><text x="60" y="69" text-anchor="middle" font-size="7.5" fill="#ffffffb0">जीत-स्कोर / 100</text></svg></div>
+<div class="vy-st"><b>${lab}</b>${rv?'आप '+Math.round(est)+' बनाम '+H(xs(br.n))+' '+Math.round(rvv)+' (राय वालों में)':'साथी उम्मीदवार जोड़ने पर आमने-सामने की तुलना जुड़ेगी'}<br>योजना प्रगति: <b style="display:inline;font-size:1rem">${dn}/${tot}</b> कदम</div></div>
+<div class="vy-k"><div><b>${Math.round(my)}</b><small>अनुमानित वोट</small></div><div><b>${tg}</b><small>जीत-रेखा</small></div><div><b>${gap}</b><small>और चाहिए</small></div><div><b>${cov}%</b><small>राय-कवरेज</small></div></div>
+${kn&&!gap?'<div class="vy-win">🎉 आप जीत-रेखा के ऊपर हैं — अब हर वोट की पुष्टि करें!</div>':''}
+<div class="vy-pil"><div><span>🔍</span>जानो<br>डेटा से</div><div><span>🤝</span>जोड़ो<br>घर-घर संपर्क</div><div><span>🗳</span>जिताओ<br>मतदान तक</div></div></div>
+<div class="box vy3"><h2>⚡ आज के 3 सुनहरे कदम</h2>${steps.map((s,i)=>`<div class="it"><span class="no">${i+1}</span><div><b>${s[0]} ${H(s[1])}</b><small>${H(s[2])}</small></div></div>`).join('')}</div>
+<div class="box"><h2>🗺 जीत की राह — 4 चरण</h2><div class="rd">${rd}</div><button class="b l s" onclick="window.print()">🖨 योजना प्रिंट करें</button></div></div>`;
+const t=document.getElementById('t_g');t.insertAdjacentHTML('afterbegin',html)}
+gd=function(){_g.apply(this,arguments);try{vy()}catch(e){console.error('vy',e)}};
+}catch(e){console.error('vy init',e)}})();
+</script>
+
+<script>
+(function(){try{
+const $1=s=>document.querySelector(s);let HS=0;
+/* ---- उम्मीदवार: मेरी राय टैब ---- */
+function upd(){const n=SEL.size,b=$1('#ma');if(!b)return;b.textContent=n?'➕ जोड़ें ('+n+')':'➕ जोड़ें';b.classList.toggle('pulse',n>0);
+const p=$1('#pend');if(p){p.hidden=!n;p.innerHTML='⚠ <b>'+n+'</b> वोटर चुने हैं — श्रेणी चुनकर <b>➕ जोड़ें</b> दबाएँ, वरना ये जुड़ेंगे नहीं'}
+const N=V.length,m=Object.keys(D.m).length,c=$1('#cvn');if(c){c.textContent=m+' / '+N+' वोटर पर आपकी राय जुड़ चुकी ('+Math.round(m*100/N)+'%)';$1('#cvb').style.width=(m*100/N)+'%';$1('#cvs').textContent=m>=N?'🎉 बधाई! सभी वोटर जुड़ गए':'अभी '+(N-m)+' वोटर बाकी हैं — कोई छूट न जाए'}}
+const _rM=rM;rM=function(){_rM.apply(this,arguments);try{
+$1('#t_m').insertAdjacentHTML('afterbegin','<div class="cov"><b id="cvn"></b><div class="cb"><i id="cvb"></i></div><small id="cvs"></small><button class="b g s" id="cvu" style="margin-top:8px">🔎 बाकी वोटर दिखाएँ</button></div>');
+const d=$1('.dock');if(d)d.insertAdjacentHTML('afterbegin','<div id="pend" hidden></div>');
+$1('#cvu').onclick=()=>{$1('#mf').value='un';MN=60;mlist()};upd()}catch(e){console.error(e)}};
+const _ml=mlist;mlist=function(){_ml.apply(this,arguments);try{upd()}catch(e){}};
+$1('#t_m').addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.k)upd()});
+const _tab=tab;tab=function(t){if(SEL.size&&!$1('#t_m').hidden&&t!='m'&&!confirm('⚠ '+SEL.size+' वोटर चुने हैं पर "जोड़ें" नहीं दबाया।\n\nOK = बिना जोड़े आगे बढ़ें\nCancel = यहीं रुकें और जोड़ें'))return;_tab(t)};
+window.addEventListener('beforeunload',e=>{if(SEL.size){e.preventDefault();e.returnValue=''}});
+/* ---- राय देने वाला पेज ---- */
+const _hs=hsave;hsave=async function(k,c){HS=1;try{await _hs(k,c)}finally{HS=0}};
+async function put(k,c,msg){try{await call({op:'hmark',token:HT,dev:devId(),keys:[k],cat:c});HM[k]=c;hlist();toast(msg)}catch(e){toast(e)}}
+function dec(){const hl=$1('#hl');if(!hl)return;
+if(!$1('#hdef')){hl.insertAdjacentHTML('beforebegin','<div class="hq"><label>⚡ त्वरित जोड़ें — पहले चुनें, फिर हर वोटर के नीचे <b>➕ जोड़ें</b> दबाएँ</label><select id="hdef"><option value="">— किसके वोटर? उम्मीदवार चुनें —</option>'+HOPT.map(o=>'<option value="'+o.id+'">'+H(o.n)+'</option>').join('')+'</select><div class="cb"><i id="hpb"></i></div><small id="hps"></small></div>')}
+const u=Object.keys(HM).length;$1('#hpb').style.width=Math.min(100,u*100/HI.max)+'%';$1('#hps').textContent='जोड़े गए '+u+' · अभी '+Math.max(0,HI.max-u)+' और जोड़ सकते हैं';
+hl.querySelectorAll('.hp').forEach(p=>{const r=p.querySelector('[data-o]');if(!r)return;const k=r.dataset.o;if(p.querySelector('.pn'))return;
+p.insertAdjacentHTML('beforeend',HM[k]?'<span class="qd">✅ जुड़ चुका</span>':'<button class="qa" data-q="'+k+'">➕ जोड़ें</button>')});
+hl.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{const c=$1('#hdef').value,k=b.dataset.q;if(!c){toast('पहले ऊपर से उम्मीदवार चुनें');$1('#hdef').focus();return}
+if(!HM[k]&&Object.keys(HM).length>=HI.max)return toast('सीमा ('+HI.max+') पूरी हो गई');put(k,c,'जुड़ गया ✅')})}
+const _hl=hlist;hlist=function(){try{const p=$1('#hl [data-s]');if(p&&!HS){const k=p.dataset.s,c=[...document.querySelectorAll('#hl [data-c]:checked')].map(x=>x.dataset.c).join('|');if(c&&c!==(HM[k]||''))put(k,c,'पिछला चुनाव अपने-आप जुड़ गया ✅')}}catch(e){}
+_hl.apply(this,arguments);try{dec()}catch(e){console.error(e)}};
+}catch(e){console.error('rai ui',e)}})();
+</script>
+
+<script>
+(function(){try{
+const $1=s=>document.querySelector(s);
+const IST=(d,hh,mm)=>new Date(Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10),hh-5,mm-30));
+const ymdNow=()=>new Date(Date.now()+19800000).toISOString().slice(0,10),dn=k=>Date.UTC(+k.slice(0,4),+k.slice(5,7)-1,+k.slice(8,10))/864e5,fd=k=>k.slice(8)+'.'+k.slice(5,7)+'.2026';
+const EV=[['2026-10-31','शनिवार','📜','निर्वाचन की लोकसूचना जारी','जिला निर्वाचन अधिकारी द्वारा नियम 23 सपठित 56 के अन्तर्गत — यहीं से नामांकन की तैयारी शुरू करें'],
+['2026-11-13','शुक्रवार','🚚','मतदान दलों का प्रस्थान / पहुँचना','सभी मतदान दल अपने केंद्रों पर पहुँचेंगे'],
+['2026-11-14','शनिवार','🏛','जिला परिषद / पंचायत समिति सदस्यों का मतदान','प्रातः 7:00 से सायं 6:00 बजे तक (सरपंच हेतु नहीं)'],
+['2026-11-15','रविवार','📝','नामांकन दिवस — पंच / सरपंच','पूरी प्रक्रिया एक ही दिन में:',1,1],
+['2026-11-16','सोमवार','🗳','पंच / सरपंच पद का मतदान','प्रातः 7:00 से सायं 6:00 बजे तक',1],
+['2026-11-16','सोमवार','🔢','मतगणना — ग्राम पंचायत मुख्यालय पर','मतदान समाप्ति के तुरन्त पश्चात'],
+['2026-11-17','मंगलवार','🏛','उपसरपंच का चुनाव','मतगणना के अगले दिन']];
+const NOM=[['⏰','08:00 – 11:00','नाम निर्देशन पत्र प्रस्तुत करें'],['🔍','11:30 से','पत्रों की संवीक्षा (जाँच)'],['↩','अपराह्न 2:00 तक','नाम वापसी'],['🏷','2:00 के तुरन्त बाद','चुनाव चिह्न आवंटन व अभ्यर्थी-सूची']];
+const INS=[['📜','लोकसूचना जारी होते ही (31 अक्टू. से)',['रिटर्निंग अधिकारी / ब्लॉक कार्यालय से निर्धारित प्रपत्र, पात्रता-शर्तें और आवश्यक दस्तावेज़ों की सूची लें','प्रस्तावक / अनुमोदक का नाम, भाग व क्रमांक वोटर सूची से मिलाकर तय करें','प्रपत्र में अपना और पिता/पति का नाम वोटर सूची जैसा ही लिखें','शपथ-पत्र / घोषणा, पहचान-प्रमाण, फोटो और जमानत राशि (यदि लागू) पहले से तैयार रखें']],
+['📝','नामांकन दिवस — 15 नवंबर (रविवार)',['सुबह 8:00 से 11:00 बजे के बीच पत्र प्रस्तुत करना है — देर न करें, पहले ही पहुँचें','सभी दस्तावेज़ पूरे और हस्ताक्षरित रखें; प्रतियाँ अतिरिक्त रखें','11:30 से संवीक्षा — अपने प्रस्तावक के साथ उपस्थित रहें और आपत्ति का उत्तर तैयार रखें','नाम वापसी अपराह्न 2:00 तक; उसके बाद चुनाव चिह्न आवंटन व अंतिम सूची जारी होती है — चिह्न नोट कर प्रचार-सामग्री उसी के अनुसार बनवाएँ']],
+['🗳','मतदान दिवस — 16 नवंबर (सोमवार)',['मतदान प्रातः 7:00 से सायं 6:00 बजे तक — सुबह 7 से पहले एजेंट बूथ पर हों','हर 2 घंटे में “हमारे वोटर पड़े / बाकी” का मिलान करें','शाम 6:00 बजे तक कतार में खड़े हर वोटर को मतदान का अवसर मिलता है','मतदान समाप्ति के तुरन्त बाद ग्राम पंचायत मुख्यालय पर मतगणना — काउंटिंग एजेंट तैयार रखें']],
+['⚖','आचार-संहिता (ज़रूरी)',['वोट के बदले नकद, शराब, उपहार या वाहन-सुविधा देना भ्रष्ट आचरण है — चुनाव रद्द/अयोग्यता तक हो सकती है','प्रचार-सामग्री, ध्वनि-विस्तारक और खर्च के नियम निर्वाचन आयोग / जिला प्रशासन के निर्देश अनुसार रखें','चुनाव-खर्च का हिसाब नियमित लिखते रहें']]];
+const PHT=[['लोकसूचना जारी','08.10 गुरु','13.10 मंगल','19.10 सोम','31.10 शनि'],['नामांकन दिवस','24.10 शनि','30.10 शुक्र','05.11 गुरु','15.11 रवि'],['मतदान दल प्रस्थान','22.10 गुरु','28.10 बुध','03.11 मंगल','13.11 शुक्र'],['जि.प./पं.स. मतदान','23.10 शुक्र','29.10 गुरु','04.11 बुध','14.11 शनि'],['पंच/सरपंच मतदान + मतगणना','25.10 रवि','31.10 शनि','06.11 शुक्र','16.11 सोम'],['उपसरपंच चुनाव','26.10 सोम','01.11 रवि','07.11 शनि','17.11 मंगल']];
+const ST=[['2026-10-30','🌱','आधार निर्माण',['वोटर सूची में राय-कवरेज 80% तक पहुँचाएँ — “बाकी वोटर दिखाएँ” से छूटे वोटर पूरे करें','हर मोहल्ले के 2–3 जानकार को राय-लिंक भेजें','साथी उम्मीदवार जोड़कर आमने-सामने की तुलना देखें']],
+['2026-11-08','🚶','घर-घर संपर्क + नामांकन-तैयारी',['लोकसूचना (31 अक्टू.) के बाद नामांकन-दस्तावेज़ों की सूची बनाकर तैयारी शुरू करें','खुले (अनिर्णीत) वोटरों वाले मकानों से पहले मिलें — एक घर, कई वोट','महिला / युवा / वरिष्ठ में जो वर्ग कमज़ोर है, उसकी अलग टोली बनाएँ']],
+['2026-11-13','🔒','पक्का करना',['पक्के वोटरों की मोहल्ला-वार सूची बनाएँ और उन्हें मतदान-तिथि व केंद्र की जानकारी दें','हर बूथ के लिए पोलिंग एजेंट व काउंटिंग एजेंट तय करें','नामांकन-दस्तावेज़ों की अंतिम जाँच कर प्रस्तावक को सूचित करें']],
+['2026-11-14','📋','नामांकन-पूर्व तैयारी',['सभी दस्तावेज़ और प्रतियाँ एक फ़ाइल में रखें','प्रस्तावक-टीम से कल सुबह 8:00 बजे का समय तय करें','पर्चा 11:00 बजे तक जमा होना है — सुबह जल्दी निकलें']],
+['2026-11-15','📝','नामांकन दिवस',['8:00–11:00 में नाम निर्देशन पत्र जमा करें; 11:30 से संवीक्षा में उपस्थित रहें','नाम वापसी 2:00 बजे तक; फिर चुनाव चिह्न और अंतिम सूची नोट करें','शाम तक प्रचार-सामग्री व कल के बूथ-एजेंट ब्रीफ़ की तैयारी पूरी करें']],
+['2026-11-16','🗳','मतदान दिवस (7:00–6:00)',['सुबह 7 बजे से पहले एजेंट बूथ पर हों','हर 2 घंटे में “हमारे वोटर पड़े / बाकी” का मिलान करें','शाम 6 बजे तक कतार में खड़े हर वोटर को मतदान का अवसर मिले — काउंटिंग एजेंट तैयार रखें']],
+['2026-11-17','🏛','उपसरपंच चुनाव',['नए वार्डपंचों से सौहार्दपूर्ण संवाद रखें','जनता से किए संकल्पों की सूची तैयार रखें']]];
+function stage(){const t=ymdNow();for(let i=0;i<ST.length;i++)if(t<=ST[i][0])return i;return -1}
+function nextEv(){const t=ymdNow();return EV.find(e=>e[0]>=t)}
+function card(e){const t=ymdNow(),d=dn(e[0])-dn(t),cl=d<0?'dn':d==0?'td':'up',tx=d<0?'✅ हो चुका':d==0?'🔥 आज':'⏳ '+d+' दिन बाद';
+return`<div class="ev ${cl} ${e[5]?'key':''}"><span class="st">${tx}</span><div class="dt">${e[2]} ${fd(e[0])} (${e[1]})</div><b>${e[3]}</b><div class="tm">${e[4]}</div>${e[6]?'<div class="mini">'+NOM.map(n=>'<div><b>'+n[0]+' '+n[1]+'</b>'+n[2]+'</div>').join('')+'</div>':''}</div>`}
+function chart(){const t=ymdNow(),a=dn('2026-10-22'),b=dn('2026-11-17'),x=d=>14+(dn(d)-a)/(b-a)*292;const pts=[['2026-10-25','प्र'],['2026-10-31','द्वि'],['2026-11-06','तृ'],['2026-11-16','चतुर्थ']],tx=Math.max(14,Math.min(306,x(t)));
+return`<svg viewBox="0 0 320 78" style="width:100%"><line x1="14" y1="40" x2="306" y2="40" stroke="#c7d2fe" stroke-width="5" stroke-linecap="round"/><line x1="14" y1="40" x2="${tx}" y2="40" stroke="#4338ca" stroke-width="5" stroke-linecap="round"/>${pts.map((p,i)=>{const L=i==3,cx=x(p[0]);return`<circle cx="${cx}" cy="40" r="${L?9:6}" fill="${L?'#f59e0b':'#fff'}" stroke="${L?'#b45309':'#4338ca'}" stroke-width="3"/><text x="${cx}" y="${L?22:26}" text-anchor="middle" font-size="${L?9:8}" font-weight="700" fill="${L?'#b45309':'#3730a3'}">${p[1]}${L?' ★ धोलिया':''}</text><text x="${cx}" y="62" text-anchor="middle" font-size="8" fill="#64748b">${p[0].slice(8)}/${p[0].slice(5,7)}</text>`}).join('')}<path d="M${tx} 49l-5 9h10z" fill="#e5484d"/><text x="${tx}" y="74" text-anchor="middle" font-size="7.5" fill="#e5484d" font-weight="700">आज</text></svg>`}
+function sched(strat){const t=ymdNow(),si=stage(),S=si>=0?ST[si]:null,up=EV.filter(e=>e[0]>=t),nx=up[0],near=up.slice(0,4);
+const tb='<table class="sch"><tr><th>कार्य</th><th>प्रथम</th><th>द्वितीय</th><th>तृतीय</th><th class="p4">चतुर्थ ★</th></tr>'+PHT.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td class="p4">'+r[4]+'</td></tr>').join('')+'</table><p class="note">नामांकन के दिन का समय (सभी चरणों में): प्रस्तुत 8:00–11:00 · संवीक्षा 11:30 से · नाम वापसी 2:00 तक · चिह्न/सूची 2:00 के बाद।</p>';
+return`<div class="ec" data-sched><h2>🗓 धोलिया सरपंच चुनाव — चतुर्थ चरण</h2><div class="sub">नामांकन, मतदान व मतगणना की समय-सारणी</div>
+<div class="cdw"><div><b data-cd="d">0</b><small>दिन</small></div><div><b data-cd="h">0</b><small>घंटे</small></div><div><b data-cd="m">0</b><small>मिनट</small></div><div><b data-cd="s">0</b><small>सेकंड</small></div></div><div class="ecs" data-cd="t"></div>
+<div class="ecs3"><div><b data-dd="2026-10-31">–</b>📜 लोकसूचना</div><div><b data-dd="2026-11-15">–</b>📝 नामांकन</div><div><b data-dd="2026-11-16">–</b>🗳 मतदान</div></div>
+${nx?`<div class="nx">⏭ अगला: ${nx[2]} ${nx[3]} — ${fd(nx[0])} (${nx[1]})</div>`:''}</div>
+<div class="box"><h2>⏳ नज़दीक आने वाला कार्यक्रम</h2><div class="tlv">${near.map(card).join('')||'<p>सभी कार्यक्रम पूरे हो चुके हैं 🙏</p>'}</div>${chart()}<p class="note" style="text-align:center">४ चरणों की मतदान-तिथियाँ — धोलिया चौथे चरण में (16 नवंबर)</p>
+<details><summary style="font-weight:700;color:#3730a3">📅 पूरा कार्यक्रम (सभी तिथियाँ)</summary><div class="tlv" style="margin-top:8px">${EV.map(card).join('')}</div></details></div>
+${strat?`<div class="box"><h2>🧭 अभी की रणनीति${S?' — '+S[1]+' '+S[2]:''}</h2>${S?`<div class="stg"><ul style="margin:0 0 0 18px;padding:0">${S[3].map(x=>'<li>'+x+'</li>').join('')}</ul></div>`:'<p>चुनाव-प्रक्रिया पूरी हो चुकी है। 🙏</p>'}<div class="stc">${ST.map((s,i)=>`<span class="${i==si?'on':''}">${s[1]} ${s[2]}</span>`).join('')}</div></div>`:(S?`<div class="stg"><b>${S[1]} अभी का चरण: ${S[2]}</b></div>`:'')}
+<div class="box ins"><h2>📌 आवश्यक निर्देश</h2>${INS.map((s,i)=>`<details ${i==0?'open':''}><summary>${s[0]} ${s[1]}</summary><ul style="margin:6px 0 0 18px;padding:0">${s[2].map(x=>'<li>'+x+'</li>').join('')}</ul></details>`).join('')}<div class="wn">⚠ यह सामान्य मार्गदर्शन है। अंतिम निर्देश आधिकारिक लोकसूचना और रिटर्निंग अधिकारी के होंगे — दस्तावेज़ों की सटीक सूची वहीं से पुष्टि करें।</div></div>
+<details class="box"><summary style="font-weight:700;color:#3730a3">📋 चारों चरणों की पूरी सारणी (देखें)</summary><div style="overflow-x:auto;margin-top:8px">${tb}</div></details>`}
+function tick(){const now=Date.now(),s0=IST('2026-11-16',7,0).getTime(),e0=IST('2026-11-16',18,0).getTime(),df=Math.max(0,s0-now),t=ymdNow();
+document.querySelectorAll('[data-cd]').forEach(el=>{const k=el.dataset.cd;if(k=='d')el.textContent=Math.floor(df/864e5);else if(k=='h')el.textContent=Math.floor(df%864e5/36e5);else if(k=='m')el.textContent=Math.floor(df%36e5/6e4);else if(k=='s')el.textContent=Math.floor(df%6e4/1e3);else if(k=='t')el.textContent=now<s0?'🗳 मतदान: 16 नवंबर (सोमवार) प्रातः 7:00 बजे से':now<e0?'🔥 मतदान जारी है — शाम 6:00 बजे तक':now<e0+864e5?'🔢 मतगणना / परिणाम का समय':'चुनाव-कार्यक्रम पूरा'});
+document.querySelectorAll('[data-dd]').forEach(el=>{const d=dn(el.dataset.dd)-dn(t);el.textContent=d>0?d+' दिन':d==0?'आज':'✓ हो गया'});
+const r=$1('#elr');if(r){const d=Math.ceil((s0-now)/864e5),nx=nextEv();r.textContent=now<s0?'🗳 मतदान 16 नव — '+d+' दिन शेष'+(nx?' · अगला: '+nx[2]+' '+nx[0].slice(8)+'/'+nx[0].slice(5,7):''):'🗳 धोलिया मतदान-चरण'}}
+const hm=$1('#p_home');if(hm){const w=document.createElement('div');w.innerHTML=sched(false);const cf=$1('#cfgw');let ref=cf?cf.nextSibling:hm.firstChild;[...w.children].forEach(c=>hm.insertBefore(c,ref))}
+const tbb=$1('#tb');if(tbb&&!$1('#elr')){tbb.insertAdjacentHTML('beforebegin','<div id="elr"></div>');$1('#elr').onclick=()=>tab('g')}
+if(typeof gd==='function'){const _g=gd;gd=function(){_g.apply(this,arguments);try{const t=$1('#t_g'),a=$1('#vyw'),h=sched(true);a?a.insertAdjacentHTML('afterend','<div id="vsch">'+h+'</div>'):t.insertAdjacentHTML('afterbegin','<div id="vsch">'+h+'</div>');tick()}catch(e){console.error(e)}}}
+tick();setInterval(tick,1000);
+}catch(e){console.error('sched',e)}})();
+</script>
+
+<script>
+(function(){try{
+const $1=s=>document.querySelector(s);
+const hd=$1('header');if(hd)hd.insertAdjacentHTML('beforeend','<div class="hch"><span>📍 धोलिया</span><span>🗓 मतदान 16 नव · <b data-dd="2026-11-16">–</b></span><span>🛡 आचार-संहिता अनुरूप</span></div>');
+const PG=['home','srch','cand','help','adm'],mark=()=>{const p=PG.find(x=>$1('#p_'+x)&&!$1('#p_'+x).hidden);document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.p==p))};
+const _go=go;go=function(p){_go(p);mark();window.scrollTo({top:0,behavior:'smooth'})};mark();
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function burst(){if(red)return;const f=document.createDocumentFragment(),E=['🎉','✨','🟡','🟢','🔵'];for(let i=0;i<20;i++){const s=document.createElement('span');s.className='cf';s.textContent=E[i%5];s.style.cssText='left:'+(8+Math.random()*84)+'%;animation-delay:'+(Math.random()*.35)+'s;font-size:'+(14+Math.random()*14)+'px';f.appendChild(s);setTimeout(()=>s.remove(),2200)}document.body.appendChild(f)}
+const tt=$1('#toast');if(tt)new MutationObserver(()=>{if(/✅|🎉/.test(tt.textContent))burst()}).observe(tt,{childList:true,characterData:true,subtree:true});
+document.body.insertAdjacentHTML('beforeend','<button id="fab" aria-label="ऊपर जाएँ">⬆</button>');const fb=$1('#fab');fb.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});addEventListener('scroll',()=>{fb.style.display=scrollY>500?'block':'none'},{passive:true});
+const m=$1('main');if(m)m.insertAdjacentHTML('afterend','<div class="vf"><b>🗳 हर मत अमूल्य है</b>शांतिपूर्ण, पारदर्शी और आचार-संहिता के अनुरूप चुनाव — लोकतंत्र की जीत में सबकी भागीदारी</div>');
+}catch(e){console.error('theme',e)}})();
 </script>
 </body></html>
