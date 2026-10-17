@@ -103,6 +103,9 @@ table.tb{border-radius:12px;overflow:hidden;border-collapse:separate;border-spac
 details.box>summary{list-style:none;font-weight:700;color:#3730a3}details.box>summary::-webkit-details-marker{display:none}
 @media (max-width:420px){.vd-t b{font-size:1.05rem}.vd-t small{font-size:.64rem}.vd-don{width:112px;height:112px}}
 @media print{.vd-hero{box-shadow:none;border:1px solid #ccc;color:#000;background:#fff}.vd-hero h2,.vd-hero .note{color:#000}.vd-t{border-color:#ccc;background:#fff}}
+
+#cpm{position:fixed;inset:0;background:#0f172a99;z-index:50;display:flex;align-items:center;justify-content:center;padding:14px}#cpm[hidden]{display:none!important}
+#cpm .box{width:100%;max-width:420px;margin:0;animation:up .25s ease both}
 </style></head><body>
 <header><h1>🗳 ग्राम पंचायत धोलिया</h1><p>उम्मीदवार वोटर-आकलन व जीत-रणनीति मंच</p></header>
 <nav><button data-p="home">🏠 मुख्य</button><button data-p="srch">🔍 वोटर खोज</button><button data-p="cand">👤 उम्मीदवार</button><button data-p="adm">🆔 एडमिन</button></nav>
@@ -115,7 +118,7 @@ details.box>summary{list-style:none;font-weight:700;color:#3730a3}details.box>su
 <section id="p_cand" hidden>
 <div id="cout"><div class="box"><h2>🔐 लॉगिन</h2><input id="lu" placeholder="यूज़रनेम" autocapitalize="none"><input id="lp" type="password" placeholder="पासवर्ड"><button class="b" id="lb">लॉगिन</button></div>
 <div class="box"><h2>🆕 उम्मीदवार रजिस्ट्रेशन</h2><p class="note">अपना नाम वोटर सूची से चुनें। नाम और EPIC (वोटर ID) नंबर का मेल खाना ज़रूरी है; मेल न खाने पर रजिस्ट्रेशन नहीं होगा।</p><input id="rq" placeholder="अपना नाम खोजें" autocomplete="off"><div id="rl"></div><input id="re" placeholder="चुने गए नाम का EPIC नंबर" autocapitalize="characters"><input id="rph" inputmode="numeric" maxlength="10" placeholder="मोबाइल नंबर (10 अंक)"><input id="ru" placeholder="यूज़रनेम (3-20 अक्षर: a-z, 0-9, _ .)" autocapitalize="none"><input id="rpw" type="password" placeholder="पासवर्ड (कम से कम 4 अक्षर)"><label class="opt"><input type="checkbox" id="rag"><span class="note">मैं स्वयं उम्मीदवार हूँ। मैं इस मंच के आँकड़ों को सर्वे/चुनाव परिणाम बताकर प्रचार नहीं करूँगा/करूँगी और आदर्श आचार संहिता का पालन करूँगा/करूँगी।</span></label><button class="b g" id="rg">✅ रजिस्ट्रेशन करें</button></div></div>
-<div id="cin" hidden><div class="bar"><b id="cname"></b><button class="b l s" id="lo">बाहर निकलें</button></div><div id="tb"><button data-t="s">🏠 सार</button><button data-t="g">🧭 जीत-रणनीति</button><button data-t="r">🤝 साथी</button><button data-t="l">🔗 लिंक</button><button data-t="m">☑ मेरी राय</button><button data-t="p">📋 प्राप्त राय</button><button data-t="a">📊 विश्लेषण</button></div>
+<div id="cin" hidden><div class="bar"><b id="cname"></b><span><button class="b l s" id="cpb">🔑 पासवर्ड बदलें</button> <button class="b l s" id="lo">बाहर निकलें</button></span></div><div id="tb"><button data-t="s">🏠 सार</button><button data-t="g">🧭 जीत-रणनीति</button><button data-t="r">🤝 साथी</button><button data-t="l">🔗 लिंक</button><button data-t="m">☑ मेरी राय</button><button data-t="p">📋 प्राप्त राय</button><button data-t="a">📊 विश्लेषण</button></div>
 <div id="t_s"></div><div id="t_g" hidden></div><div id="t_r" hidden></div><div id="t_l" hidden></div><div id="t_m" hidden></div><div id="t_p" hidden></div><div id="t_a" hidden></div></div></section>
 <section id="p_help" hidden><div id="hbody"></div></section>
 <section id="p_adm" hidden><div id="aout" class="box"><h2>🆔 एडमिन लॉगिन</h2><input id="ap" type="password" placeholder="एडमिन पासवर्ड"><button class="b" id="ab">लॉगिन</button></div><div id="ain" hidden></div></section>
@@ -377,11 +380,12 @@ async function hsave(k,cat){if(!cat&&!HM[k])return toast('कोई उम्म
 /* ---------- एडमिन ---------- */
 let A=null,AD=null;
 $('#ab').onclick=async()=>{A={apass:$('#ap').value};try{const d=await call({op:'a_list',...A});$('#aout').hidden=true;$('#ain').hidden=false;aRender(d)}catch(e){A=null;toast(e)}};
-function aRender(d){$('#ain').innerHTML=`<div class="box"><h2>⚙ सर्वर सेटअप (एक बार)</h2><p class="note">1) वोटर सूची (मोहल्ला) सर्वर को भेजें — लिंक के मोहल्ला-नियम के लिए ज़रूरी। 2) EPIC सूची चिपकाएँ (पंक्ति: भाग,क्रमांक,EPIC)।</p><button class="b g s" id="av">📤 वोटर सूची भेजें</button><input type="file" id="aef" accept=".txt,.csv,.html"><textarea id="ae" rows="4" placeholder="109,1,ABC1234567&#10;109,2,XYZ7654321"></textarea><button class="b g s" id="aeb">📤 EPIC सूची भेजें</button><div class="note" id="as"></div></div>
+function aRender(d){$('#ain').innerHTML=`<div class="box"><h2>⚙ सर्वर सेटअप (एक बार)</h2><p class="note">1) वोटर सूची (मोहल्ला) सर्वर को भेजें — लिंक के मोहल्ला-नियम के लिए ज़रूरी। 2) EPIC सूची चिपकाएँ (पंक्ति: भाग,क्रमांक,EPIC)।</p><button class="b g s" id="av">📤 वोटर सूची भेजें</button> <button class="b g s" id="avp">📤 EPIC भेजें (फ़ाइल वाली सूची)</button><input type="file" id="aef" accept=".txt,.csv,.html"><textarea id="ae" rows="4" placeholder="109,1,ABC1234567&#10;109,2,XYZ7654321"></textarea><button class="b g s" id="aeb">📤 EPIC सूची भेजें</button><div class="note" id="as"></div></div>
 <div class="box"><h3>🔍 वोटर खोजें (EPIC सहित — केवल एडमिन)</h3><input id="aq" placeholder="नाम / मकान / क्रमांक या पूरा EPIC नंबर" autocomplete="off"><div id="ar"></div></div><div class="box"><h2>👥 उम्मीदवार (${d.c.length})</h2><div style="overflow-x:auto"><table class="tb"><tr><th>नाम</th><th>मोबाइल</th><th>साथी</th><th>लिंक</th><th>राय</th><th></th></tr>${d.c.map(c=>`<tr><td>${H(c[3])}<br><small class="note">${H(c[1])}</small></td><td>${H(c[2])}</td><td>${c[6]}</td><td>${c[7]}</td><td>${c[8]}</td><td><button class="b l s" data-v="${c[0]}">📊</button> <button class="b l s" data-l="${c[0]}">📋</button> <button class="b ${c[5]?'r':'g'} s" data-t="${c[0]}" data-a="${c[5]?0:1}">${c[5]?'बंद':'चालू'}</button></td></tr>`).join('')}</table></div></div><div id="aan"></div>`;
 let aT;$('#aq').oninput=()=>{clearTimeout(aT);aT=setTimeout(async()=>{const q=$('#aq').value;if(q.trim().length<2){$('#ar').innerHTML='';return}try{const n=q.toUpperCase().replace(/[^A-Z0-9]/g,'');let ks;if(n.length>=8&&(n.match(/\d/g)||[]).length>=6)ks=(await call({op:'epic_find',epic:n})).keys.filter(k=>BK[k]);else ks=find(q).slice(0,40).map(v=>v.key);const d=ks.length?await call({op:'a_epicof',...A,keys:ks}):{e:{}};$('#ar').innerHTML=ks.map(k=>vrow(BK[k],`<span class="chip tg">EPIC: ${H(d.e[k]||'—')}</span>`)).join('')||'<p class="note">कोई वोटर नहीं मिला।</p>'}catch(e){toast(e)}},400)};
 const send=async(op,rows)=>{for(let i=0;i<rows.length;i+=1000){await call({op,...A,first:i==0,rows:rows.slice(i,i+1000)});$('#as').textContent=Math.min(i+1000,rows.length)+'/'+rows.length+' भेजे'}};
 $('#av').onclick=async()=>{try{await send('a_voters',V.map(v=>[v.part,v.sn,v.sec,v.name]));toast('वोटर सूची भेज दी ✅')}catch(e){toast(e)}};
+$('#avp').onclick=async()=>{const r=V.filter(v=>v.ep).map(v=>[v.part,v.sn,v.ep]);if(!confirm('फ़ाइल में मौजूद '+r.length+' वोटरों की EPIC सर्वर पर भेजें? (सर्वर की पुरानी EPIC सूची बदल जाएगी)'))return;try{await send('a_epic',r);toast('EPIC सूची भेज दी ✅ ('+r.length+')')}catch(e){toast(e)}};
 $('#aef').onchange=async ev=>{const f=ev.target.files[0];if(!f)return;try{let t=await f.text();const i=t.indexOf('const D=');if(i>=0){const a=JSON.parse(t.slice(i+8,t.indexOf('}];',i)+2));t=a.filter(x=>!x.deleted&&x.epic).map(x=>x.part+','+x.ser+','+x.epic).join('\n')}$('#ae').value=t;$('#as').textContent=t.split('\n').filter(x=>x.trim()).length+' पंक्तियाँ तैयार — अब "EPIC सूची भेजें" दबाएँ'}catch(e){toast('फ़ाइल पढ़ी नहीं जा सकी')}};
 $('#aeb').onclick=async()=>{const r=$('#ae').value.split('\n').map(l=>l.split(/[,\t]/).map(x=>x.trim())).filter(x=>x.length>=3&&/^\d+$/.test(x[0])&&/^\d+$/.test(x[1])).map(x=>[+x[0],+x[1],x[2]]);if(!r.length)return toast('सही पंक्तियाँ नहीं मिलीं');try{await send('a_epic',r);toast(r.length+' EPIC भेजे ✅')}catch(e){toast(e)}};
 $$('#ain [data-v]').forEach(b=>b.onclick=async()=>{try{const c=await call({op:'a_cdata',...A,ckey:b.dataset.v});renderAnalysis($('#aan'),{name:c.name,rivals:c.rivals,m:Object.fromEntries(c.own),rec:c.rec,tot:c.tot,lsecs:c.lsecs,nl:c.nl},true);$('#aan').scrollIntoView()}catch(e){toast(e)}});
@@ -467,5 +471,29 @@ const info=h.querySelector('.box:not(.warn)');
 if(info&&/यह मंच क्या है/.test(info.textContent)){const d=document.createElement('details');d.className='box';const t=info.querySelector('h2');d.innerHTML='<summary>ℹ यह मंच क्या है (पढ़ें)</summary>'+info.innerHTML.replace(/<h2>.*?<\/h2>/,'');info.replaceWith(d);h.appendChild(el);h.appendChild(d)}else h.appendChild(el);
 document.getElementById('vdcsv').onclick=()=>{const r=[['मोहल्ला','वोटर','प्रतिशत','महिला']].concat(SE.map(x=>[sn(x.s),x.n,pc(x.n,N),x.f]));const b=new Blob(['\ufeff'+r.map(a=>a.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='dholiya-mohalla-summary.csv';a.click()};
 }catch(e){console.error('home dashboard',e)}})();
+</script>
+
+<div id="cpm" hidden><div class="box"><h2>🔑 पासवर्ड बदलें</h2><p class="note">सुरक्षा के लिए पहले पुराना पासवर्ड डालें।</p>
+<input id="cp0" type="password" placeholder="पुराना पासवर्ड" autocomplete="current-password">
+<input id="cp1" type="password" placeholder="नया पासवर्ड (कम से कम 4 अक्षर)" autocomplete="new-password">
+<input id="cp2" type="password" placeholder="नया पासवर्ड दोबारा" autocomplete="new-password">
+<label class="ck"><input type="checkbox" id="cps"> पासवर्ड दिखाएँ</label>
+<div class="row2"><button class="b g" id="cpok">✅ बदलें</button><button class="b l" id="cpx">रद्द करें</button></div></div></div>
+<script>
+(function(){try{
+const q=s=>document.querySelector(s),m=q('#cpm'),f=['#cp0','#cp1','#cp2'];
+const close=()=>{m.hidden=true;f.forEach(i=>q(i).value='');q('#cps').checked=false;f.forEach(i=>q(i).type='password')};
+q('#cpb').onclick=()=>{m.hidden=false;q('#cp0').focus()};
+q('#cpx').onclick=close;m.onclick=e=>{if(e.target===m)close()};
+q('#cps').onchange=e=>f.forEach(i=>q(i).type=e.target.checked?'text':'password');
+q('#cpok').onclick=async()=>{
+const o=q('#cp0').value,n=q('#cp1').value,c=q('#cp2').value;
+if(!o)return toast('पुराना पासवर्ड भरें');
+if(n.length<4)return toast('नया पासवर्ड कम से कम 4 अक्षर का रखें');
+if(n!==c)return toast('नया पासवर्ड दोनों बार एक जैसा डालें');
+if(n===o)return toast('नया पासवर्ड पुराने से अलग रखें');
+if(!U)return toast('पहले लॉगिन करें');
+try{await call({op:'cpass',...U,old:o,pass:n});close();toast('✅ पासवर्ड बदल गया। अगली बार नए पासवर्ड से लॉगिन करें')}catch(e){toast(e)}}
+}catch(e){console.error('cpass ui',e)}})();
 </script>
 </body></html>
